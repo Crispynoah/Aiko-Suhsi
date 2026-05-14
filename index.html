@@ -767,19 +767,23 @@
     const tabs = document.querySelectorAll('.mtab');
     const cats = document.querySelectorAll('.mcat');
 
+    function filterCats(cat) {
+      cats.forEach(c => {
+        c.hidden = !(cat === 'all' || c.dataset.cat === cat);
+      });
+    }
+
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
         tab.classList.add('active');
         tab.setAttribute('aria-selected', 'true');
-
-        const cat = tab.dataset.cat;
-        cats.forEach(c => {
-          const show = cat === 'all' || c.dataset.cat === cat;
-          c.style.display = show ? '' : 'none';
-        });
+        filterCats(tab.dataset.cat);
       });
     });
+
+    // Initialzustand sicherstellen
+    filterCats('all');
 
     // ── Button active states (Emil: scale on press) ────────────
     document.querySelectorAll('.btn-primary, .btn-ghost, .btn-submit, .nav-cta').forEach(b => {

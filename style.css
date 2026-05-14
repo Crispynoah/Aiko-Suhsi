@@ -667,9 +667,13 @@ svg   { flex-shrink: 0; }
   font-family: var(--sans);
   color: var(--muted);
   cursor: pointer;
+  touch-action: manipulation;
   transition: background 180ms var(--ease-out), color 180ms, border-color 180ms, transform 120ms;
   white-space: nowrap;
 }
+
+/* Sicherstellen dass hidden-Attribut immer greift */
+[hidden] { display: none !important; }
 @media (hover: hover) and (pointer: fine) {
   .mtab:hover { background: var(--cream-2); color: var(--dark); border-color: rgba(28,25,23,.2); }
 }
