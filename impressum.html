@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – Aiko Sushi &amp; Grill</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav-wrap" id="nav-wrap">
+    <nav class="nav-pill" id="nav-pill">
+      <ul class="nav-left">
+        <li><a href="index.html" class="nl">Home</a></li>
+        <li><a href="index.html#menu" class="nl">Menü</a></li>
+        <li><a href="index.html#ayce" class="nl">All-You-Can-Eat</a></li>
+      </ul>
+      <a href="index.html" class="nav-logo" aria-label="Aiko Sushi Startseite">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+          <text x="16" y="21" text-anchor="middle" font-size="14" fill="currentColor" font-family="serif">愛</text>
+        </svg>
+        <span class="logo-name">AIKO<span class="logo-amp"> &amp; GRILL</span></span>
+      </a>
+      <ul class="nav-right">
+        <li><a href="ueber-uns.html" class="nl">Über uns</a></li>
+        <li><a href="index.html#contact" class="nl">Kontakt</a></li>
+        <li><a href="index.html#reservation" class="nav-cta">
+          <span>Reservieren</span>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true">
+    <nav class="mobile-nav">
+      <a href="index.html"             class="mn-link" data-delay="0">Home</a>
+      <a href="index.html#menu"        class="mn-link" data-delay="1">Menü</a>
+      <a href="index.html#ayce"        class="mn-link" data-delay="2">All-You-Can-Eat</a>
+      <a href="ueber-uns.html"         class="mn-link" data-delay="3">Über uns</a>
+      <a href="index.html#contact"     class="mn-link" data-delay="4">Kontakt</a>
+      <a href="index.html#reservation" class="mn-link mn-cta" data-delay="5">Tisch reservieren</a>
+    </nav>
+  </div>
+
+  <!-- CONTENT -->
+  <main>
+    <section class="legal-section">
+      <div class="c">
+
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Zurück zur Startseite
+        </a>
+
+        <p class="eyebrow">Rechtliches</p>
+        <h1 class="subpage-h1">Impressum</h1>
+
+        <div class="legal-content">
+
+          <div class="legal-block">
+            <h2>Anbieter</h2>
+            <address>
+              Yuzhen Xu<br />
+              Kalkstraße 2<br />
+              51377 Leverkusen
+            </address>
+          </div>
+
+          <div class="legal-block">
+            <h2>Kontakt</h2>
+            <p>
+              Telefon: <a href="tel:+492149600020">0214 96000208</a><br />
+              E-Mail: <a href="mailto:aikosushi2023@gmail.com">aikosushi2023@gmail.com</a>
+            </p>
+          </div>
+
+          <div class="legal-block">
+            <h2>Registereintrag</h2>
+            <p>
+              Amtsgericht Köln<br />
+              HRB 113123
+            </p>
+          </div>
+
+          <div class="legal-block">
+            <h2>Umsatzsteuer-Identifikationsnummer</h2>
+            <p>
+              DE 361488281
+              <span class="legal-note">gemäß § 27 UStG</span>
+            </p>
+          </div>
+
+          <div class="legal-block">
+            <h2>Inhaltlich Verantwortlicher</h2>
+            <p>
+              Yuzhen Xu
+              <span class="legal-note">gemäß § 18 Abs. 2 MStV</span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer subpage-mini-footer">
+    <div class="c">
+      <div class="footer-bottom">
+        <p>© 2026 Aiko Sushi GmbH &nbsp;·&nbsp; Alle Rechte vorbehalten</p>
+        <p>Kalkstraße 2, 51377 Leverkusen</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const pill = document.getElementById('nav-pill');
+    window.addEventListener('scroll', () => {
+      pill.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    const ham     = document.getElementById('hamburger');
+    const overlay = document.getElementById('mobile-overlay');
+    const mnLinks = document.querySelectorAll('.mn-link');
+
+    function toggleMenu(open) {
+      const isOpen = open ?? !overlay.classList.contains('open');
+      overlay.classList.toggle('open', isOpen);
+      ham.classList.toggle('open', isOpen);
+      ham.setAttribute('aria-expanded', isOpen);
+      overlay.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    ham.addEventListener('click', () => toggleMenu());
+    mnLinks.forEach(l => l.addEventListener('click', () => toggleMenu(false)));
+  </script>
+</body>
+</html>
